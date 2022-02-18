@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Static_005
+﻿namespace Static_005
 {
     class Point
     {
@@ -15,7 +11,6 @@ namespace Static_005
             this.Y = y;
             this.Z = z;
         }
-
         public static Point operator +(Point p1, Point p2)
         {
             return new Point(p1.X + p2.X, p1.Y + p2.Y, p1.Z + p2.Z);

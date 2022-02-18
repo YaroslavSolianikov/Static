@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Static_001
 {
@@ -20,16 +16,23 @@ namespace Static_001
             switch (sign)
             {
                 case '+':
-                    Calculator.Sum();
+                    Console.WriteLine(Calculator.Sum());
                     break;
                 case '-':
-                    Calculator.Sub();
+                    Console.WriteLine(Calculator.Sub());
                     break;
                 case '*':
-                    Calculator.Mult();
+                    Console.WriteLine(Calculator.Mult());
                     break;
                 case '/':
-                    Calculator.Div();
+                    try
+                    {
+                        Console.WriteLine(Calculator.Div());
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                     break;
                 default:
                     Console.WriteLine("Incorrect sign");

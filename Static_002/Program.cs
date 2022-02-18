@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Static_002
 {
@@ -16,13 +12,13 @@ namespace Static_002
             {
                 Console.WriteLine("Enter degrees in Celsius");
                 string temperatureCelsius = Console.ReadLine();
-                Convector.CelsiusToFahrenheit(temperatureCelsius);
+                Console.WriteLine(Convector.CelsiusToFahrenheit(temperatureCelsius));
             }
             else if (choice == 2)
             {
                 Console.WriteLine("Enter degrees in Fahrenheit");
                 string temperatureFahrenheit = Console.ReadLine();
-                Convector.FahrenheitToCelsius(temperatureFahrenheit);
+                Console.WriteLine(Convector.FahrenheitToCelsius(temperatureFahrenheit));
             }
             else
                 Console.WriteLine("Incorrect input");
