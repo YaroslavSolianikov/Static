@@ -10,13 +10,13 @@ namespace Static_003
             string s = Console.ReadLine();
             Console.WriteLine("Enter the position");
             int pos = int.Parse(Console.ReadLine());
-            if (pos > 0)
+            try
             {
-                Console.WriteLine($"{s.StrCount(pos)} elements in string ");
+                s.StrCount(pos);
             }
-            else
+            catch (ArgumentException ex)
             {
-                Console.WriteLine("incorrect input");
+                Console.WriteLine(ex.Message);
             }
             Console.ReadKey();
         }
