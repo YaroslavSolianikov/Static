@@ -4,8 +4,8 @@ namespace ClassLibrary1
 {
     public class Static_Helper
     {
-        private const double FirstFormulaCosntant = 1.8;
-        private const int SecondFormulaCosntant = 32;
+        private const double firstFormulaCosntant = 1.8;
+        private const int secondFormulaCosntant = 32;
 
         public static double Sum(double firstNum, double secondNum) => firstNum + secondNum;
 
@@ -27,12 +27,12 @@ namespace ClassLibrary1
 
         public static double CelsiusToFahrenheit(double temperatureCelsius)
         {
-            return temperatureCelsius * FirstFormulaCosntant + SecondFormulaCosntant;
+            return temperatureCelsius * firstFormulaCosntant + secondFormulaCosntant;
         }
 
         public static double FahrenheitToCelsius(double temperatureFahrenheit)
         {
-            return Math.Round((temperatureFahrenheit - SecondFormulaCosntant) / FirstFormulaCosntant, 2);
+            return Math.Round((temperatureFahrenheit - secondFormulaCosntant) / firstFormulaCosntant, 2);
         }
 
         public static int StrCount(string str, int pos)
