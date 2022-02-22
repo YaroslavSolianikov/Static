@@ -4,7 +4,7 @@ using System;
 
 namespace UnitTests
 {
-    public class Static_001HelperTests
+    public class Static_HelperTests
     {
         [TestCase(5, 10, 15)]
         [TestCase(0, 9, 9)]
@@ -14,9 +14,7 @@ namespace UnitTests
         public void Sum_WhenFirstNumAndSecondNumInitialized_ShouldFindSumOfTwoNumbers(
             double firstNum, double secondNum, double expectedResult)
         {
-            Static_001Helper.FirstNum = firstNum;
-            Static_001Helper.SecondNum = secondNum;
-            double actualResult = Static_001Helper.Sum();
+            double actualResult = Static_Helper.Sum(firstNum,secondNum);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -28,9 +26,7 @@ namespace UnitTests
         public void Sub_WhenFirstNumAndSecondNumInitialized_ShouldFindSubstractionOfTwoNumbers(
             double firstNum, double secondNum, double expectedResult)
         {
-            Static_001Helper.FirstNum = firstNum;
-            Static_001Helper.SecondNum = secondNum;
-            double actualResult = Static_001Helper.Sub();
+            double actualResult = Static_Helper.Sub(firstNum, secondNum);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -42,9 +38,7 @@ namespace UnitTests
         public void Mult_WhenFirstNumAndSecondNumInitialized_ShouldFindMultiplicationOfTwoNumbers(
             double firstNum, double secondNum, double expectedResult)
         {
-            Static_001Helper.FirstNum = firstNum;
-            Static_001Helper.SecondNum = secondNum;
-            double actualResult = Static_001Helper.Mult();
+            double actualResult = Static_Helper.Mult(firstNum, secondNum);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -56,9 +50,7 @@ namespace UnitTests
         public void Div_WhenFirstNumAndSecondNumInitializedAndSecondNumIsNotZero_ShouldFindDivisionOfTwoNumbers(
             double firstNum, double secondNum, double expectedResult)
         {
-            Static_001Helper.FirstNum = firstNum;
-            Static_001Helper.SecondNum = secondNum;
-            double actualResult = Static_001Helper.Div();
+            double actualResult = Static_Helper.Div(firstNum, secondNum);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -67,9 +59,7 @@ namespace UnitTests
         {
             try
             {
-                Static_001Helper.FirstNum = 10;
-                Static_001Helper.SecondNum = 0;
-                Static_001Helper.Div();
+                Static_Helper.Div(10, 0);
             }
             catch (DivideByZeroException ex)
             {
@@ -79,27 +69,27 @@ namespace UnitTests
             Assert.Fail();
         }
 
-        [TestCase("0", 32)]
-        [TestCase("-8", 17.6)]
-        [TestCase("7", 44.6)]
-        [TestCase("-25", -13)]
-        [TestCase("23", 73.4)]
+        [TestCase(0, 32)]
+        [TestCase(-8, 17.6)]
+        [TestCase(7, 44.6)]
+        [TestCase(-25, -13)]
+        [TestCase(23, 73.4)]
         public void CelsiusToFahrenheit_WhenTemperatureCelsiusPassed_ShouldReturnTemperatureInFahrenheit(
-            string tempInCelsius, double expectedResult)
+            double tempInCelsius, double expectedResult)
         {
-            double actualResult = Static_001Helper.CelsiusToFahrenheit(tempInCelsius);
+            double actualResult = Static_Helper.CelsiusToFahrenheit(tempInCelsius);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [TestCase("0", -17.78)]
-        [TestCase("5", -15)]
-        [TestCase("7", -13.89)]
-        [TestCase("50", 10)]
-        [TestCase("59", 15)]
+        [TestCase(0, -17.78)]
+        [TestCase(5, -15)]
+        [TestCase(7, -13.89)]
+        [TestCase(50, 10)]
+        [TestCase(59, 15)]
         public void FahrenheitToCelsius_WhenTemperatureFahrenheitPassed_ShouldReturnTemperatureInCelsius(
-            string tempInFahrenheit, double expectedResult)
+            double tempInFahrenheit, double expectedResult)
         {
-            double actualResult = Static_001Helper.FahrenheitToCelsius(tempInFahrenheit);
+            double actualResult = Static_Helper.FahrenheitToCelsius(tempInFahrenheit);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -111,7 +101,7 @@ namespace UnitTests
         public void StrCount_WhenStringIsNotNullAndPositionIsNotEqualToZeroAndNotLessThanZeroPassed_ShouldCalculateCharsFromPosition(
             string str, int position, int expectedResult)
         {
-            int actualResult = Static_001Helper.StrCount(str, position);
+            int actualResult = Static_Helper.StrCount(str, position);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -120,7 +110,7 @@ namespace UnitTests
         {
             try
             {
-                Static_001Helper.StrCount(null, 2);
+                Static_Helper.StrCount(null, 2);
             }
             catch (ArgumentException ex)
             {
@@ -135,7 +125,7 @@ namespace UnitTests
         {
             try
             {
-                Static_001Helper.StrCount("Hello", 0);
+                Static_Helper.StrCount("Hello", 0);
             }
             catch (ArgumentException ex)
             {
@@ -153,7 +143,7 @@ namespace UnitTests
         public void OurSort_WhenArrayPassed_ShouldReturnSortedArrayAscending(
             int[] array, int[] expectedResult)
         {
-            int [] actualResult = Static_001Helper.OurSort(array);
+            int [] actualResult = Static_Helper.OurSort(array);
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
@@ -161,9 +151,10 @@ namespace UnitTests
         public void GetMaxElementOfDiagonal_WhenArrayPassed_ShouldReturnMaxElentOfDiagonal(
             int[,]array, int expectedResult) 
         {
-            int actualResult = Static_001Helper.GetMaxElementOfDiagonal(array);
+            int actualResult = Static_Helper.GetMaxElementOfDiagonal(array);
             Assert.AreEqual(expectedResult, actualResult);
         }
+
         static object[] MaxOfDiagonalCases =
         {
             new object[] { new[,] { {1, 2, 3 },
