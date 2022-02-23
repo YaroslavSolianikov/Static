@@ -14,7 +14,8 @@ namespace UnitTests
         public void Sum_WhenFirstNumAndSecondNumInitialized_ShouldFindSumOfTwoNumbers(
             double firstNum, double secondNum, double expectedResult)
         {
-            double actualResult = Static_Helper.Sum(firstNum,secondNum);
+            double actualResult = Static_Helper.Sum(firstNum, secondNum);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -27,6 +28,7 @@ namespace UnitTests
             double firstNum, double secondNum, double expectedResult)
         {
             double actualResult = Static_Helper.Sub(firstNum, secondNum);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -39,6 +41,7 @@ namespace UnitTests
             double firstNum, double secondNum, double expectedResult)
         {
             double actualResult = Static_Helper.Mult(firstNum, secondNum);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -51,6 +54,7 @@ namespace UnitTests
             double firstNum, double secondNum, double expectedResult)
         {
             double actualResult = Static_Helper.Div(firstNum, secondNum);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -66,6 +70,7 @@ namespace UnitTests
                 Assert.AreEqual("Second argument was zero!", ex.Message);
                 Assert.Pass();
             }
+
             Assert.Fail();
         }
 
@@ -78,6 +83,7 @@ namespace UnitTests
             double tempInCelsius, double expectedResult)
         {
             double actualResult = Static_Helper.CelsiusToFahrenheit(tempInCelsius);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -90,6 +96,7 @@ namespace UnitTests
             double tempInFahrenheit, double expectedResult)
         {
             double actualResult = Static_Helper.FahrenheitToCelsius(tempInFahrenheit);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -98,40 +105,43 @@ namespace UnitTests
         [TestCase("SomeWord", 4, 5)]
         [TestCase("Hello", 4, 2)]
         [TestCase("SomeVeryLongWordForThisTest", 7, 21)]
-        public void StrCount_WhenStringIsNotNullAndPositionIsNotEqualToZeroAndNotLessThanZeroPassed_ShouldCalculateCharsFromPosition(
+        public void GetNumberOfelementsFromPosition_WhenStringIsNotNullAndPositionIsNotEqualToZeroAndNotLessThanZeroPassed_ShouldCalculateCharsFromPosition(
             string str, int position, int expectedResult)
         {
-            int actualResult = Static_Helper.StrCount(str, position);
+            int actualResult = Static_Helper.GetNumberOfelementsFromPosition(str, position);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
-        public void StrCount_WhenStringIsNullPassed_ShouldThrowArgumentException()
+        public void GetNumberOfelementsFromPosition_WhenStringIsNullPassed_ShouldThrowArgumentException()
         {
             try
             {
-                Static_Helper.StrCount(null, 2);
+                Static_Helper.GetNumberOfelementsFromPosition(null, 2);
             }
             catch (ArgumentException ex)
             {
                 Assert.AreEqual("String was null!", ex.Message);
                 Assert.Pass();
             }
+
             Assert.Fail();
         }
 
         [Test]
-        public void StrCount_WhenStringIsPassedAndPositionIsEqualToZeroOrLess_ShouldThrowArgumentException()
+        public void GetNumberOfelementsFromPosition_WhenStringIsPassedAndPositionIsEqualToZeroOrLess_ShouldThrowArgumentException()
         {
             try
             {
-                Static_Helper.StrCount("Hello", 0);
+                Static_Helper.GetNumberOfelementsFromPosition("Hello", 0);
             }
             catch (ArgumentException ex)
             {
                 Assert.AreEqual("Position was less than zero or equal to zero!", ex.Message);
                 Assert.Pass();
             }
+
             Assert.Fail();
         }
 
@@ -144,6 +154,7 @@ namespace UnitTests
             int[] array, int[] expectedResult)
         {
             int [] actualResult = Static_Helper.OurSort(array);
+
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
@@ -152,6 +163,7 @@ namespace UnitTests
             int[,]array, int expectedResult) 
         {
             int actualResult = Static_Helper.GetMaxElementOfDiagonal(array);
+
             Assert.AreEqual(expectedResult, actualResult);
         }
 

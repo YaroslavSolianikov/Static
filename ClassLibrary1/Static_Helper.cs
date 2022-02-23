@@ -35,16 +35,11 @@ namespace ClassLibrary1
             return Math.Round((temperatureFahrenheit - secondFormulaCosntant) / firstFormulaCosntant, 2);
         }
 
-        public static int StrCount(string str, int pos)
+        public static int GetNumberOfelementsFromPosition(string str, int pos)
         {
-            int count = 0;
             if (pos > 0 && str != null)
             {
-                for (int i = pos; i <= str.Length; i++)
-                {
-                    count++;
-                }
-                return count;
+                return str.Length - pos + 1;
             }
             else if (str == null)
             {
@@ -58,30 +53,52 @@ namespace ClassLibrary1
 
         public static int[] OurSort(int[] array)
         {
-            var sortedArray = from i in array
-                              orderby i
-                              select i;
-            array = sortedArray.ToArray();
+            int temp;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] > array[j])
+                    {
+                        temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+
             return array;
         }
 
         public static int GetMaxElementOfDiagonal(int[,] array)
         {
-            int maxOfDiagonal = array[0, 0];
-            for (int i = 0; i < 3; i++)
+            if (array != null && array.Length != 0)
             {
-                for (int j = 0; j < 3; j++)
+                int maxOfDiagonal = array[0, 0];
+                for (int i = 0; i < 3; i++)
                 {
-                    if (j == i)
+                    for (int j = 0; j < 3; j++)
                     {
-                        if (maxOfDiagonal < array[i, j])
+                        if (j == i)
                         {
-                            maxOfDiagonal = array[i, j];
+                            if (maxOfDiagonal < array[i, j])
+                            {
+                                maxOfDiagonal = array[i, j];
+                            }
                         }
                     }
                 }
+
+                return maxOfDiagonal;
             }
-            return maxOfDiagonal;
+            else if (array == null)
+            {
+                throw new ArgumentException("array was null!");
+            }
+            else
+            {
+                throw new ArgumentException("array was empty!");
+            }
         }
     }
 }
