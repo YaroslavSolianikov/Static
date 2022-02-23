@@ -105,20 +105,20 @@ namespace UnitTests
         [TestCase("SomeWord", 4, 5)]
         [TestCase("Hello", 4, 2)]
         [TestCase("SomeVeryLongWordForThisTest", 7, 21)]
-        public void GetNumberOfelementsFromPosition_WhenStringIsNotNullAndPositionIsNotEqualToZeroAndNotLessThanZeroPassed_ShouldCalculateCharsFromPosition(
+        public void GetNumberOfElementsFromPosition_WhenStringIsNotNullAndPositionIsNotEqualToZeroAndNotLessThanZeroPassed_ShouldCalculateCharsFromPosition(
             string str, int position, int expectedResult)
         {
-            int actualResult = Static_Helper.GetNumberOfelementsFromPosition(str, position);
+            int actualResult = Static_Helper.GetNumberOfElementsFromPosition(str, position);
 
             Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
-        public void GetNumberOfelementsFromPosition_WhenStringIsNullPassed_ShouldThrowArgumentException()
+        public void GetNumberOfElementsFromPosition_WhenStringIsNullPassed_ShouldThrowArgumentException()
         {
             try
             {
-                Static_Helper.GetNumberOfelementsFromPosition(null, 2);
+                Static_Helper.GetNumberOfElementsFromPosition(null, 2);
             }
             catch (ArgumentException ex)
             {
@@ -130,11 +130,11 @@ namespace UnitTests
         }
 
         [Test]
-        public void GetNumberOfelementsFromPosition_WhenStringIsPassedAndPositionIsEqualToZeroOrLess_ShouldThrowArgumentException()
+        public void GetNumberOfElementsFromPosition_WhenStringIsPassedAndPositionIsEqualToZeroOrLess_ShouldThrowArgumentException()
         {
             try
             {
-                Static_Helper.GetNumberOfelementsFromPosition("Hello", 0);
+                Static_Helper.GetNumberOfElementsFromPosition("Hello", 0);
             }
             catch (ArgumentException ex)
             {

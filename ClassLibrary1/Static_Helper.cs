@@ -35,7 +35,7 @@ namespace ClassLibrary1
             return Math.Round((temperatureFahrenheit - secondFormulaCosntant) / firstFormulaCosntant, 2);
         }
 
-        public static int GetNumberOfelementsFromPosition(string str, int pos)
+        public static int GetNumberOfElementsFromPosition(string str, int pos)
         {
             if (pos > 0 && str != null)
             {
